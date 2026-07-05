@@ -418,6 +418,7 @@ extension Calendar {
                 result = foundRange.end.addingTimeInterval(-1)
             }
         }
+
         repeat {
             guard let foundRange = self.dateInterval(of: .weekOfMonth, for: result) else {
                 // Out of range
