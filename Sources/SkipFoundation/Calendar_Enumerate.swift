@@ -1099,8 +1099,8 @@ extension Calendar {
 
             return SearchStepResult(result: nil, newSearchDate: searchingDate)
         }
-        var matchDate = baseMatchDate
 
+        var matchDate = baseMatchDate
         if repeatedTimePolicy == .first, matchingComponents.hour != nil {
             let hasExplicitDateComponent = matchingComponents.era != nil
                 || matchingComponents.year != nil
@@ -1113,6 +1113,7 @@ extension Calendar {
                 || matchingComponents.weekdayOrdinal != nil
                 || matchingComponents.weekOfMonth != nil
                 || matchingComponents.weekOfYear != nil
+
             if direction == .forward || hasExplicitDateComponent {
                 let earlier = matchDate.addingTimeInterval(-3600.0)
                 let isAllowedByDirection: Bool
@@ -1123,6 +1124,7 @@ extension Calendar {
                 } else {
                     isAllowedByDirection = earlier < start
                 }
+
                 if isAllowedByDirection, self.date(earlier, containsMatchingComponents: matchingComponents).1 {
                     matchDate = earlier
                 }
@@ -1563,7 +1565,9 @@ extension Calendar {
                     adjusted.year = (adjusted.year ?? 0) - 1
                 }
             }
+
             return adjusted
+
         case .dayOfYear:
             var adjusted = comps
             let dateDayOfYear = self.component(.dayOfYear, from: date)
@@ -1573,7 +1577,9 @@ extension Calendar {
             } else {
                 adjusted.year = (comps.dayOfYear ?? Int.max) > dateDayOfYear ? dateYear : dateYear + 1
             }
+
             return adjusted
+
         case .weekOfYear:
             var adjusted = comps
             let dateWeekOfYear = self.component(.weekOfYear, from: date)
@@ -1583,7 +1589,9 @@ extension Calendar {
             } else {
                 adjusted.yearForWeekOfYear = (comps.weekOfYear ?? Int.max) > dateWeekOfYear ? dateYearForWeekOfYear : dateYearForWeekOfYear + 1
             }
+
             return adjusted
+
         case .day:
             var adjusted = comps
             if direction == .backward {
@@ -1617,7 +1625,9 @@ extension Calendar {
                     adjusted.year = self.component(.year, from: date)
                 }
             }
+
             return adjusted
+
         default:
             // Nothing to adjust
             return comps
