@@ -12,7 +12,7 @@ SkipFoundation also implements portions of the CryptoKit API.
 
 ## Dependencies
 
-SkipFoundation depends on the [skip](https://source.skip.dev/skip) transpiler plugin as well as the [SkipLib](https://github.com/skiptools/skip-lib) package.
+SkipFoundation depends on the [skip](https://github.com/skiptools/skip) transpiler plugin as well as the [SkipLib](https://github.com/skiptools/skip-lib) package.
 
 SkipFoundation is part of the *Skip Core Frameworks* and is not intended to be imported directly.
 The module is transparently adopted through the translation of `import Foundation` into `import skip.foundation.*` by the Skip transpiler.
